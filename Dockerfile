@@ -11,7 +11,10 @@ RUN pacman -Syu --noconfirm --needed base base-devel && \
     echo 'MAKEFLAGS="-j$(nproc)"' >> /home/makepkg/.config/pacman/makepkg.conf && \
     echo 'keyserver-options auto-key-retrieve' > /home/makepkg/.gnupg/gpg.conf && \
     chown -R makepkg:users /home/makepkg && \
-    pacman -Syu --noconfirm --needed git python python-yaml ccache
+    pacman -Syu --noconfirm --needed git python python-yaml ccache \
+	bc cpio gettext libelf pahole perl tar xz \
+	graphviz imagemagick python-sphinx texlive-latexextra xmlto && \
+    pacman -Scc --noconfirm
 
 WORKDIR /app
 ENV PYTHONPATH "${PYTHONPATH}:/app/"
