@@ -14,7 +14,7 @@ RUN pacman -Syu --noconfirm --needed base base-devel && \
     pacman -Syu --noconfirm --needed git python python-yaml ccache \
 	bc cpio gettext libelf pahole perl tar xz \
 	graphviz imagemagick python-sphinx texlive-latexextra xmlto && \
-    yes|pacman -Scc --noconfirm
+    yes|pacman -Scc
 
 WORKDIR /app
 ENV PYTHONPATH "${PYTHONPATH}:/app/"
